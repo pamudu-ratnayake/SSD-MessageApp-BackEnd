@@ -5,8 +5,9 @@ import com.example.server.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/ssd")
 public class SaveMsgController {
 
     @Autowired
@@ -14,7 +15,7 @@ public class SaveMsgController {
 
     @PostMapping("/savemessage")
     public SaveMessage saveMessage (@RequestBody SaveMessage saveMessage){
-        System.out.println("triggered----");
+        System.out.println("triggered----" + saveMessage);
         return messageService.saveMsg(saveMessage);
     }
 
